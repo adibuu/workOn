@@ -40,17 +40,17 @@ function App() {
       <div className="card">
         <h3>Descriptions</h3>
 
-        {/* if(description){komponent}else{komponent <p>} */}
-
         {/* {description ? (
           <Description>{descriptions[description]}</Description>
         ) : (
           <p>Please select description</p>
         )} */}
 
-        {/* if(description){komponent} */}
-        {description && <Description>{descriptions[description]}</Description>}
-        {/* if(!description){<p>} */}
+        {description && (
+          <Description image={descriptions[description].image}>
+            {descriptions[description].text}
+          </Description>
+        )}
         {!description && <p>Please select description</p>}
       </div>
     </>
