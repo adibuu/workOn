@@ -1,33 +1,58 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.css";
+import Images from "./components/Images";
+import Button from "./components/Button";
+import Description from "./components/Description";
+import descriptions from "./data/descriptions";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [description, setDescription] = useState("");
+
+  const changeDescription = (descriptionKey) => {
+    setDescription(descriptionKey);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+      <Images />
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="buttons">
+        <Button
+          onClick={() => changeDescription("first")}
+          isActive={description === "first"}
+        >
+          First
+        </Button>
+        <Button
+          onClick={() => changeDescription("second")}
+          isActive={description === "second"}
+        >
+          Second
+        </Button>
+        <Button
+          onClick={() => changeDescription("third")}
+          isActive={description === "third"}
+        >
+          Third
+        </Button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="card">
+        <h3>Descriptions</h3>
+
+        {/* if(description){komponent}else{komponent <p>} */}
+
+        {/* {description ? (
+          <Description>{descriptions[description]}</Description>
+        ) : (
+          <p>Please select description</p>
+        )} */}
+
+        {/* if(description){komponent} */}
+        {description && <Description>{descriptions[description]}</Description>}
+        {/* if(!description){<p>} */}
+        {!description && <p>Please select description</p>}
+      </div>
     </>
   );
 }
