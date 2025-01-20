@@ -11,7 +11,7 @@ const Logo = () => {
       padding={1}
       rounded={"xl"}
     >
-      <Icon w={10} h={10} as={ShoppingCart} />
+      <Icon w={10} h={10} as={ShoppingCart} color="white" />
       <Text fontSize={"2xl"} fontWeight={"bold"} color="white">
         Fake Store
       </Text>
