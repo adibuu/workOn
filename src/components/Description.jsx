@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const Description = ({ image = null, children }) => {
+const Description = ({ image = null, attributes = [], children }) => {
   const [showImage, setShowImage] = useState(false);
+
+  console.log(attributes);
 
   return (
     <div
@@ -15,6 +17,30 @@ const Description = ({ image = null, children }) => {
       }}
     >
       <p>{children}</p>
+
+      {attributes.length > 0 && (
+        <>
+          {/* {attributes.map((attribute, index) => {
+            const isSecondElement = index === 1;
+
+            return (
+              <p
+                key={attribute}
+                style={{ color: isSecondElement ? "red" : "white" }}
+              >
+                {attribute}
+              </p>
+            );
+          })} */}
+
+          {attributes.map((attribute, index) => (
+            <p key={attribute} style={{ color: index === 1 ? "red" : "white" }}>
+              {attribute}
+            </p>
+          ))}
+        </>
+      )}
+
       {image && (
         <>
           <button onClick={() => setShowImage(!showImage)}>

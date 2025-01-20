@@ -47,7 +47,10 @@ function App() {
         )} */}
 
         {description && (
-          <Description image={descriptions[description].image}>
+          <Description
+            image={descriptions[description].image}
+            attributes={descriptions[description].attributes}
+          >
             {descriptions[description].text}
           </Description>
         )}

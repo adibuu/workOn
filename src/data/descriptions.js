@@ -7,6 +7,7 @@ const descriptions = {
   second: {
     text: "Fusce imperdiet, libero ac malesuada commodo, erat est ornare lectus, a euismod leo neque at quam. Quisque ut rhoncus velit. Ut tincidunt ullamcorper enim dignissim congue. Praesent id neque ac felis semper facilisis ut eu lorem. Quisque vitae risus nisl. Suspendisse consectetur viverra rutrum. Donec aliquam ac enim eu aliquam. Morbi a velit sed sapien semper malesuada. Maecenas in fringilla diam. Vestibulum a nisi metus. Nunc porta nisl velit, sit amet efficitur risus mattis vitae. Quisque tincidunt urna diam, id varius dui bibendum vel. Fusce quis est ipsum.",
     image: "https://picsum.photos/id/238/500/400",
+    attributes: ["One", "Two", "Three", "Four", "Five"],
   },
 
   third: {
