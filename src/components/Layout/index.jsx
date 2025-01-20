@@ -2,6 +2,7 @@
 import { Flex, Box } from "@chakra-ui/react";
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
@@ -13,10 +14,11 @@ const Layout = ({ children }) => {
         backgroundColor={"white"}
         color="black"
         marginTop={"70px"}
+        padding={5}
       >
         {children}
       </Box>
-      <Box></Box>
+      <Footer />
     </Flex>
   );
 };
