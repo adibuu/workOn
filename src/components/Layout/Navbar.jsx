@@ -34,8 +34,8 @@ const Navbar = () => {
       </Link>
 
       <Flex gap={5} fontWeight={"bold"} fontSize={"lg"} color="White" mr="40px">
-        <AppLink to="/products">
-          <Text>Products</Text>
+        <AppLink to="/categories">
+          <Text>Categories</Text>
         </AppLink>
         <AppLink to="/account">
           <Text>Account</Text>
