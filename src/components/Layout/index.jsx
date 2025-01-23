@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
 import { Flex, Box } from "@chakra-ui/react";
+import { Outlet } from "react-router";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <Flex height={"100vh"} flexDirection={"column"}>
       <Navbar />
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
         marginTop={"70px"}
         padding={5}
       >
-        {children}
+        <Outlet />
       </Box>
       <Footer />
     </Flex>

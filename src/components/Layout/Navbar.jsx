@@ -1,6 +1,8 @@
 import { Flex } from "@chakra-ui/react";
+import { Link } from "react-router";
 
 import Logo from "./Logo";
+import AppLink from "./AppLink";
 
 const Navbar = () => {
   return (
@@ -13,7 +15,13 @@ const Navbar = () => {
       backgroundColor={"blue.400"}
       shadow={"md"}
     >
-      <Logo />
+      <Link to={"/"}>
+        <Logo />
+      </Link>
+      <Flex gap={8} mr={10}>
+        <AppLink to="/categories">Categories</AppLink>
+        <AppLink to="/account">Account</AppLink>
+      </Flex>
     </Flex>
   );
 };
