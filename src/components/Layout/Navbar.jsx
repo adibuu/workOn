@@ -14,6 +14,7 @@ const Navbar = () => {
       position={"fixed"}
       backgroundColor={"blue.400"}
       shadow={"md"}
+      zIndex={9999}
     >
       <Link to={"/"}>
         <Logo />
