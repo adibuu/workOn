@@ -9,6 +9,7 @@ import Layout from "./components/Layout/index.jsx";
 import Home from "./routes/Home.jsx";
 import Categories from "./routes/Categories.jsx";
 import Category from "./routes/Category.jsx";
+import Product from "./routes/Product.jsx";
 import Account from "./routes/Account.jsx";
 import fetcher from "./fetcher.js";
 
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
               <Route index element={<Home />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/categories/:category" element={<Category />} />
+              <Route path="/product/:id" element={<Product />} />
               <Route path="/account" element={<Account />} />
             </Route>
           </Routes>
