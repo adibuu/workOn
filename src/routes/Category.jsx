@@ -16,6 +16,7 @@ const Category = () => {
     <Flex flexDirection="column">
       <Center>
         {isLoading && <Spinner size="xl" />}
+
         {error && (
           <Alert.Root status="error">
             <Alert.Indicator />
