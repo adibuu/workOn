@@ -6,12 +6,14 @@ import {
   Center,
   IconButton,
   Button,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { useForm } from "react-hook-form";
 import validator from "validator";
 import axios from "axios";
+import { Link } from "react-router";
 
 const Account = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -88,6 +90,10 @@ const Account = () => {
           <Button colorPalette={"blue"} type="submit">
             Sign in
           </Button>
+
+          <ChakraLink as={Link} to="/signup">
+            No account? Click here to sign up!
+          </ChakraLink>
         </Flex>
       </form>
     </Center>
