@@ -1,5 +1,7 @@
 import useSWR from "swr";
-import { Flex, Spinner, Alert } from "@chakra-ui/react";
+import { Flex, Spinner, Alert, SimpleGrid } from "@chakra-ui/react";
+
+import ProductCard from "@/components/ProductCard";
 
 const Home = () => {
   const {
@@ -22,9 +24,11 @@ const Home = () => {
         </Alert.Root>
       )}
 
-      {products?.map((product) => (
-        <p key={product.id}>{product.title}</p>
-      ))}
+      <SimpleGrid columns={4} gap={8}>
+        {products?.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </SimpleGrid>
     </Flex>
   );
 };
