@@ -12,27 +12,46 @@ import Category from "./routes/Category.jsx";
 import Product from "./routes/Product.jsx";
 import Account from "./routes/Account.jsx";
 import Signup from "./routes/Signup.jsx";
+import Profile from "./routes/Profile.jsx";
+import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import fetcher from "./fetcher.js";
+import { Toaster } from "./components/ui/toaster.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 axios.defaults.baseURL = "https://fakestoreapi.com";
+if (localStorage.getItem("jwtToken"))
+  axios.defaults.headers.common["Authorization"] =
+    localStorage.getItem("jwtToken");
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider>
-      <SWRConfig value={{ fetcher }}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="/categories" element={<Categories />} />
-              <Route path="/categories/:category" element={<Category />} />
-              <Route path="/product/:id" element={<Product />} />
-              <Route path="/account" element={<Account />} />
-              <Route path="/signup" element={<Signup />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </SWRConfig>
+      <AuthProvider>
+        <SWRConfig value={{ fetcher }}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="/categories" element={<Categories />} />
+                <Route path="/categories/:category" element={<Category />} />
+                <Route path="/product/:id" element={<Product />} />
+                <Route path="/account" element={<Account />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute>
+                      <Profile />
+                    </ProtectedRoute>
+                  }
+                />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </SWRConfig>
+
+        <Toaster />
+      </AuthProvider>
     </Provider>
   </StrictMode>
 );

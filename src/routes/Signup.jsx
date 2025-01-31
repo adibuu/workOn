@@ -17,6 +17,8 @@ import axios from "axios";
 import { Link } from "react-router";
 import { Undo2 } from "lucide-react";
 
+import { toaster } from "../components/ui/toaster";
+
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowReapeatPassword] = useState(false);
@@ -56,8 +58,16 @@ const Signup = () => {
       });
 
       console.log(response?.data);
+
+      toaster.create({
+        description: "Succes sign up",
+        type: "success",
+      });
     } catch (error) {
-      console.log(error);
+      toaster.create({
+        description: error?.message,
+        type: "error",
+      });
     }
   };
 

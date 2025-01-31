@@ -13,10 +13,15 @@ import { Eye, EyeOff } from "lucide-react";
 import { useForm } from "react-hook-form";
 import validator from "validator";
 import axios from "axios";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+
+import { toaster } from "../components/ui/toaster";
+import { useAuth } from "../context/AuthContext";
 
 const Account = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -35,9 +40,19 @@ const Account = () => {
 
       const { data: tokenData } = response;
 
-      console.log(tokenData?.token);
+      login(tokenData?.token);
+
+      toaster.create({
+        description: "Succes sign in",
+        type: "success",
+      });
+
+      navigate("/");
     } catch (error) {
-      console.log(error);
+      toaster.create({
+        description: error?.message,
+        type: "error",
+      });
     }
   };
 
